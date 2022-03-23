@@ -1,0 +1,15 @@
+{
+  "version": 2,
+  "dgSpecHash": "m43u/+xioFGf+TYFZOmyGw90JNm+1jlU4M94hZ5FPBxaQd+1u0jNujcW3hO1ByD+k9bIWI41YECEqquPrLSEgQ==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\schin\\Desktop\\Cursos\\ProjetoLoja\\PurpleHardware\\PurpleHardware.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\schin\\.nuget\\packages\\microsoft.extensions.apidescription.server\\3.0.0\\microsoft.extensions.apidescription.server.3.0.0.nupkg.sha512",
+    "C:\\Users\\schin\\.nuget\\packages\\microsoft.openapi\\1.2.3\\microsoft.openapi.1.2.3.nupkg.sha512",
+    "C:\\Users\\schin\\.nuget\\packages\\swashbuckle.aspnetcore\\6.2.3\\swashbuckle.aspnetcore.6.2.3.nupkg.sha512",
+    "C:\\Users\\schin\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\6.2.3\\swashbuckle.aspnetcore.swagger.6.2.3.nupkg.sha512",
+    "C:\\Users\\schin\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\6.2.3\\swashbuckle.aspnetcore.swaggergen.6.2.3.nupkg.sha512",
+    "C:\\Users\\schin\\.nuget\\packages\\swashbuckle.aspnetcore.swaggerui\\6.2.3\\swashbuckle.aspnetcore.swaggerui.6.2.3.nupkg.sha512"
+  ],
+  "logs": []
+}
