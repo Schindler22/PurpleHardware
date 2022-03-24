@@ -7,12 +7,19 @@ namespace PurpleHardware;
         {
             _repository = repository;
         }
+
         public List<Product> GetProducts()
         {
             return _repository.GetProducts();
         }
+
         public void NewProduct(Product product)
         {
             _repository.NewProduct(product);
+        }
+
+        public void DeleteProduct(int id)
+        {
+            _repository.DeleteProduct(id);
         }
     }

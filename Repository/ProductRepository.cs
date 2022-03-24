@@ -10,6 +10,15 @@ namespace PurpleHardware;
         _context = context;
     }
 
+    public void DeleteProduct(int id)
+    {
+        var data = _context.Products.Where(w => w.Id == id).SingleOrDefault();
+        if(data != null){
+            _context.Products.Remove(data);
+        }
+        _context.SaveChanges();
+    }
+
     public List<Product> GetProducts()
     {
         return _context.Products.ToList();

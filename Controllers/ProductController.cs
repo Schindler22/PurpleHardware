@@ -21,7 +21,7 @@ public class ProductController : ControllerBase
         _service = service;
     }
 
-    [HttpGet("produtos")]
+    [HttpGet]
     public List<Product> Get()
     {
         return _service.GetProducts();
@@ -32,7 +32,15 @@ public class ProductController : ControllerBase
     {                            
         _service.NewProduct(product);
 
-        return $"{product.Name}-{product.Description}-{product.Brand}-{product.BuyPrice}-{product.SellPrice}";
+        return "Produto adicionado com sucesso!";
+    }
+
+    [HttpDelete]
+    public string Delete(int id)
+    {
+        _service.DeleteProduct(id);
+
+        return "Produto removido com sucesso!";
     }
 
 }
