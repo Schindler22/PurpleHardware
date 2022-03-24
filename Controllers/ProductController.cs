@@ -3,7 +3,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System.Text.Json;
 
@@ -23,7 +22,7 @@ public class ProductController : ControllerBase
     }
 
     [HttpGet("produtos")]
-    public async Task<List<Product>> Get()
+    public List<Product> Get()
     {
         return _service.GetProducts();
     }
