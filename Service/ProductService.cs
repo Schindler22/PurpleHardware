@@ -13,6 +13,6 @@ namespace PurpleHardware;
         }
         public void NewProduct(Product product)
         {
-            _repository.GetProducts();
+            _repository.NewProduct(product);
         }
     }

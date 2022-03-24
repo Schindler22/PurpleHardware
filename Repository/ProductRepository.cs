@@ -12,12 +12,13 @@ namespace PurpleHardware;
 
     public List<Product> GetProducts()
     {
-        return _context.Products.ToList<Product>();
+        return _context.Products.ToList();
     }
 
     public void NewProduct(Product product)
     {
-        var data = new Product(product.Name, product.Description, product.Brand, product.BuyPrice, product.SellPrice);
-        _context.Products.Add(data);
+        //var data = new Product(product.Name, product.Description, product.Brand, product.BuyPrice, product.SellPrice);
+        _context.Products.Add(product);
+        _context.SaveChanges();
     }
 }

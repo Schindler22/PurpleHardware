@@ -10,8 +10,8 @@ using PurpleHardware;
 namespace PurpleHardware.Migrations
 {
     [DbContext(typeof(ApiContext))]
-    [Migration("20220324194445_1.1")]
-    partial class _11
+    [Migration("20220324222114_1.0.0")]
+    partial class _100
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -44,7 +44,7 @@ namespace PurpleHardware.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Products");
+                    b.ToTable("Products", (string)null);
                 });
 #pragma warning restore 612, 618
         }

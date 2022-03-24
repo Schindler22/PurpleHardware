@@ -6,20 +6,12 @@ namespace PurpleHardware;
 
 public class ApiContext : DbContext
 {
-    public ApiContext(DbContextOptions<ApiContext> options) : base(options)
-    {
- 
-    }
+    public ApiContext(DbContextOptions<ApiContext> options) : base(options) {}
 
     public DbSet<Product> Products { get; set; }
-    // public string DbPath { get; }
-    // public ApiContext(){ 
-    //     var folder = Environment.SpecialFolder.LocalApplicationData;
-    //     var path = Environment.GetFolderPath(folder);
-    //     DbPath = System.IO.Path.Join(path, "PurpleHardware.db");
-    // }
-    // protected override void OnConfiguring(DbContextOptionsBuilder options)
-    // {
-    //     options.UseSqlite($"Data Source={DbPath}");
-    // } 
+
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+        modelBuilder.Entity<Product>().ToTable("Products");
+    }
 }

@@ -4,7 +4,7 @@
 
 namespace PurpleHardware.Migrations
 {
-    public partial class InitialCreate : Migration
+    public partial class _100 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -18,23 +18,12 @@ namespace PurpleHardware.Migrations
                     Description = table.Column<string>(type: "TEXT", nullable: false),
                     Brand = table.Column<string>(type: "TEXT", nullable: false),
                     BuyPrice = table.Column<double>(type: "REAL", nullable: false),
-                    SellPrice = table.Column<double>(type: "REAL", nullable: false),
-                    ProductId = table.Column<int>(type: "INTEGER", nullable: true)
+                    SellPrice = table.Column<double>(type: "REAL", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Products", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_Products_Products_ProductId",
-                        column: x => x.ProductId,
-                        principalTable: "Products",
-                        principalColumn: "Id");
                 });
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Products_ProductId",
-                table: "Products",
-                column: "ProductId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
