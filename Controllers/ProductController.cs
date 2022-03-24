@@ -27,12 +27,12 @@ public class ProductController : ControllerBase
         return _service.GetProducts();
     }
 
-    // [HttpPost]
-    // public string Post(Product product)
-    // {                            
-    //     var produto = new Product(name:product.Name, description:product.Description, brand:product.Brand, 
-    //                                 buyPrice:product.BuyPrice, sellPrice:product.SellPrice);
-    //     return $"{produto.Name};{produto.Description};{produto.Brand};{produto.BuyPrice};{produto.SellPrice};{produto.Id}";
-    // }
+    [HttpPost]
+    public string Post(Product product)
+    {                            
+        _service.NewProduct(product);
+
+        return $"{product.Name}-{product.Description}-{product.Brand}-{product.BuyPrice}-{product.SellPrice}";
+    }
 
 }
