@@ -7,8 +7,8 @@ namespace PurpleHardware;
         {
             _repository = repository;
         }
-        public string GetProducts(List<Product> products)
+        public List<Product> GetProducts()
         {
-            return _repository.GetProducts(products);
+            return _repository.GetProducts();
         }
     }

@@ -1,4 +1,11 @@
 using Microsoft.AspNetCore.Mvc;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
+using System.Text.Json;
 
 namespace PurpleHardware.Controllers;
 
@@ -15,31 +22,18 @@ public class ProductController : ControllerBase
         _service = service;
     }
 
-    [HttpGet]
-    public string Get()
+    [HttpGet("produtos")]
+    public async Task<List<Product>> Get()
     {
-        var produtos = new List<Product>();
-
-        Product notebook = new Product(name: "Air 13", description: "Design moderno e custa bastante",
-                                      brand: "Apple", buyPrice: 5.999, sellPrice: 6.699);
-        Product smartphone = new Product(name: "S22", description: "Design moderno e esquenta bastante",
-                                      brand: "Samsung", buyPrice: 7.999, sellPrice: 9.399);
-        Product console = new Product(name: "PS5", description: "Design moderno e menos que os outros",
-                                      brand: "Sony", buyPrice: 3.999, sellPrice: 4.699);
-
-        produtos.Add(notebook);
-        produtos.Add(smartphone);
-        produtos.Add(console);
-
-        return _service.GetProducts(produtos);
+        return _service.GetProducts();
     }
 
-    [HttpPost]
-    public string Post(Product product)
-    {                            
-        var produto = new Product(name:product.Name, description:product.Description, brand:product.Brand, 
-                                    buyPrice:product.BuyPrice, sellPrice:product.SellPrice);
-        return $"{produto.Name};{produto.Description};{produto.Brand};{produto.BuyPrice};{produto.SellPrice};{produto.Id}";
-    }
+    // [HttpPost]
+    // public string Post(Product product)
+    // {                            
+    //     var produto = new Product(name:product.Name, description:product.Description, brand:product.Brand, 
+    //                                 buyPrice:product.BuyPrice, sellPrice:product.SellPrice);
+    //     return $"{produto.Name};{produto.Description};{produto.Brand};{produto.BuyPrice};{produto.SellPrice};{produto.Id}";
+    // }
 
 }

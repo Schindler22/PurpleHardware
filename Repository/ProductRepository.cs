@@ -1,13 +1,17 @@
+using System;
+using System.Linq;
+
 namespace PurpleHardware;
     public class ProductRepository: IProductRepository
     {
-        public ProductRepository()
+        private readonly ApiContext _context;
+        public ProductRepository(ApiContext context)
         {
-            
+            _context = context;
         }
 
-        public string GetProducts(List<Product> products)
+        public List<Product> GetProducts()
         {
-            return "teste";
+            return _context.Products.ToList();
         }
     }
