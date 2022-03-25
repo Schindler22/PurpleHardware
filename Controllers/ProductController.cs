@@ -43,4 +43,12 @@ public class ProductController : ControllerBase
         return "Produto removido com sucesso!";
     }
 
+    [HttpPut]
+    public string Update(Product product)
+    {
+        _service.UpdateProduct(product);
+
+        return "Produto atualizado com sucesso!";
+    }
+
 }

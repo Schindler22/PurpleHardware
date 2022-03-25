@@ -9,7 +9,7 @@ using PurpleHardware;
 
 namespace PurpleHardware.Migrations
 {
-    [DbContext(typeof(ApiContext))]
+    [DbContext(typeof(ProductContext))]
     [Migration("20220324222114_1.0.0")]
     partial class _100
     {

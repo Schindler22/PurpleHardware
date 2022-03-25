@@ -15,7 +15,7 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddDbContext<ApiContext>(options =>
+builder.Services.AddDbContext<ProductContext>(options =>
 {
     var folder = Environment.SpecialFolder.LocalApplicationData;
     var path = Environment.GetFolderPath(folder);

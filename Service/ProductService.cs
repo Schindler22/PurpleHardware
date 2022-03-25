@@ -22,4 +22,9 @@ namespace PurpleHardware;
         {
             _repository.DeleteProduct(id);
         }
+
+    public void UpdateProduct(Product product)
+    {
+        _repository.UpdateProduct(product);
     }
+}

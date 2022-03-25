@@ -8,7 +8,7 @@ using PurpleHardware;
 
 namespace PurpleHardware.Migrations
 {
-    [DbContext(typeof(ApiContext))]
+    [DbContext(typeof(ProductContext))]
     partial class ApiContextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)
