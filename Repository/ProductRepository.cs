@@ -19,6 +19,11 @@ namespace PurpleHardware;
         _context.SaveChanges();
     }
 
+    public Product GetProduct(int id)
+    {
+        return _context.Products.Where(s => s.Id == id).FirstOrDefault();
+    }
+
     public List<Product> GetProducts()
     {
         return _context.Products.ToList();
@@ -26,26 +31,22 @@ namespace PurpleHardware;
 
     public void NewProduct(Product product)
     {
-        //var data = new Product(product.Name, product.Description, product.Brand, product.BuyPrice, product.SellPrice);
         _context.Products.Add(product);
         _context.SaveChanges();
     }
 
-    public void UpdateProduct(Product product)
+    public async Task<string> UpdateProduct(Product product, int id)
     {
-        var data = _context.Products.Where(w => w.Id == product.Id).SingleOrDefault();
-        if(data != null){
-            
-            var newName = data.Name == product.Name ? data.Name : product.Name;
-            var newDescription = data.Description == product.Description ? data.Description : product.Description;
-            var newBrand = data.Brand == product.Brand ? data.Brand : product.Brand;
-            var newBuyPrice = data.BuyPrice == product.BuyPrice ? data.BuyPrice : product.BuyPrice;
-            var newSellPrice = data.SellPrice == product.SellPrice ? data.SellPrice : product.SellPrice;
+            var data = GetProduct(id);
+            data.Name = product.Name;
+            data.Brand = product.Brand;
+            data.Description = product.Description;
+            data.BuyPrice = product.BuyPrice;
+            data.SellPrice = product.SellPrice;
 
-            var UpdateProduct = new Product(name: newName, description: newDescription, 
-                                            brand:newBrand, buyPrice:newBuyPrice, sellPrice:newSellPrice);
-
-            _context.Products.Update(UpdateProduct);
-        }
+            var result = await _context.SaveChangesAsync();
+  
+            return "Update realizado com sucesso!";
     }
+
 }

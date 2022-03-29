@@ -23,8 +23,25 @@ namespace PurpleHardware;
             _repository.DeleteProduct(id);
         }
 
-    public void UpdateProduct(Product product)
+    public async Task<string> UpdateProduct(Product product)
     {
-        _repository.UpdateProduct(product);
+        var data = _repository.GetProduct(product.Id);
+
+        if(data != null){
+            
+            var newName = data.Name == product.Name ? data.Name : product.Name;
+            var newDescription = data.Description == product.Description ? data.Description : product.Description;
+            var newBrand = data.Brand == product.Brand ? data.Brand : product.Brand;
+            var newBuyPrice = data.BuyPrice == product.BuyPrice ? data.BuyPrice : product.BuyPrice;
+            var newSellPrice = data.SellPrice == product.SellPrice ? data.SellPrice : product.SellPrice;
+
+            var UpdateProduct = new Product(name: newName, description: newDescription, 
+                                            brand:newBrand, buyPrice:newBuyPrice, sellPrice:newSellPrice);
+
+            return await _repository.UpdateProduct(UpdateProduct, product.Id);
+        } else {
+            return "Produto não encontrado!";
+        }
     }
+
 }

@@ -4,5 +4,5 @@ namespace PurpleHardware;
         List<Product> GetProducts();
         void NewProduct(Product product);
         void DeleteProduct(int id);
-        void UpdateProduct(Product product);
+        Task<string> UpdateProduct(Product product);
     }

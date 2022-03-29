@@ -44,11 +44,9 @@ public class ProductController : ControllerBase
     }
 
     [HttpPut]
-    public string Update(Product product)
+    public async Task<string> Update(Product product)
     {
-        _service.UpdateProduct(product);
-
-        return "Produto atualizado com sucesso!";
+        return await _service.UpdateProduct(product);
     }
 
 }
