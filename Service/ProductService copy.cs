@@ -1,12 +1,12 @@
 namespace PurpleHardware;
     public class UserClientService: IUserClientService
     {
-        private readonly IUserClientRepository _repository;
-        
-        public UserClientService(IUserClientRepository repository)
-        {
-            _repository = repository;
-        }
+    private readonly IUserClientRepository _repository;
+    
+    public UserClientService(IUserClientRepository repository)
+    {
+        _repository = repository;
+    }
 
     public void DeleteUserClients(int id)
     {
