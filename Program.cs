@@ -15,12 +15,12 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddDbContext<ProductContext>(options =>
-{
-    var folder = Environment.SpecialFolder.LocalApplicationData;
-    var path = Environment.GetFolderPath(folder);
-	options.UseSqlite($"Data Source={System.IO.Path.Join(path, "PurpleHardware.db")}");
-});
+var folder = Environment.SpecialFolder.LocalApplicationData;
+var path = Environment.GetFolderPath(folder);
+var connectionString = $"Data Source={System.IO.Path.Join(path, "PurpleHardware.db")}";
+
+builder.Services.AddDbContext<ProductContext>(options =>{options.UseSqlite(connectionString);});
+builder.Services.AddDbContext<UserContext>(options =>{options.UseSqlite(connectionString);});
 
 var app = builder.Build();
 
