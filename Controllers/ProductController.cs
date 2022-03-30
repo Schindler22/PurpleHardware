@@ -22,25 +22,21 @@ public class ProductController : ControllerBase
     }
 
     [HttpGet]
-    public List<Product> Get()
+    public async Task<List<Product>> Get()
     {
-        return _service.GetProducts();
+        return await _service.GetProducts();
     }
 
     [HttpPost]
-    public string Post(Product product)
+    public async Task<string> Post(Product product)
     {                            
-        _service.NewProduct(product);
-
-        return "Produto adicionado com sucesso!";
+        return await _service.NewProduct(product);
     }
 
     [HttpDelete]
-    public string Delete(int id)
+    public async Task<string> Delete(int id)
     {
-        _service.DeleteProduct(id);
-
-        return "Produto removido com sucesso!";
+        return await _service.DeleteProduct(id);
     }
 
     [HttpPut]

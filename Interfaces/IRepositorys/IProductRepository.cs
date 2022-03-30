@@ -1,10 +1,10 @@
 namespace PurpleHardware;
     public interface IProductRepository
     {
-        List<Product> GetProducts();
-        void NewProduct(Product product);
-        void DeleteProduct(int id);
+        Task<List<Product>> GetProducts();
+        Task<string> NewProduct(Product product);
+        Task<string> DeleteProduct(int id);
         Task<string> UpdateProduct(Product product, int id);
 
-        Product GetProduct(int id);
+        Task<Product> GetProduct(int id);
     }
